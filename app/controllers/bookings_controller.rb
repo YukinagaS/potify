@@ -4,10 +4,12 @@ class BookingsController < ApplicationController
   #   @booking = Booking.new
   # end
   def index # users/:id/bookings
-    @user = User.find(params[:user_id])
-    @bookings = Booking.where(user: @user)
+    @user = current_user
+    @toilets = @user.toilets
+    @toilet_bookings = Booking.where(toilet_id: @toilets)
+    @bookings = @user.bookings
   end
-  
+
   def create
     @booking = Booking.new(booking_params)
     @booking.toilet = @toilet
