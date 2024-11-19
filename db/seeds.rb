@@ -16,7 +16,7 @@ puts "there is #{User.count} users"
 
 puts "building toilets"
 
-celso_t = Toilet.create!(name: "the duchess", price: 50, address: "52 Bowl Dr.", description: "hello", user: celso)
+celso_t = Toilet.create!(name: "the duchess", price: 50, address: "52 Bowl Dr.", description: "status: unprocessable_entity", user: celso)
 file = File.open("app/assets/images/horse_toilet.jpg")
 celso_t.photo.attach(io: file, filename: "toilet.jpg", content_type: "image/jpg")
 celso_t.save
