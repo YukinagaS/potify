@@ -17,6 +17,11 @@ puts "there is #{User.count} users"
 puts "building toilets"
 
 celso_t = Toilet.create!(name: "my toilet", price: 50, address: "52 Bowl Dr.", description: "hello", user: celso)
+
+file = File.open("../app/images/horse_toilet.jpg")
+celso_t.photo.attach(io: file, filename: "toilet.jpg", content_type: "image/jpg")
+celso_t.save
+
 doug_t = Toilet.create(name: "your toilet", price: 100, address: "who cares", description: "i'm a toilet", user: doug)
 yann_t = Toilet.create(name: "alisa", price: 1, address: "an alleyway", description: "don't use this one", user: yann)
 
