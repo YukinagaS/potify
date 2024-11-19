@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  def index
+  def index # users/:id/bookings
     @user = User.find(params[:user_id])
     @bookings = Booking.where(user: @user)
   end
