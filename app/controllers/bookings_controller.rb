@@ -1,20 +1,21 @@
 class BookingsController < ApplicationController
 
-  # def new
-  #   @booking = Booking.new
-  # end
   def index # users/:id/bookings
-    @user = User.find(params[:user_id])
+    @user = current_user
     @bookings = Booking.where(user: @user)
   end
-  
+
   def create
+    @user = current_user
+    @toilet = Toilet.find(params[:toilet_id])
     @booking = Booking.new(booking_params)
+    @booking.user = @user
     @booking.toilet = @toilet
-    if @bookmark.save
-      redirect_to toilet_path(@toilet)
+    @booking.status = "pending"
+    if @booking.save
+      redirect_to bookings_path
     else
-      render :new, status: :unprocessable_entity
+      render "toilets/show", status: :unprocessable_entity
     end
 
   end

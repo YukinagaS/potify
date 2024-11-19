@@ -1,3 +1,13 @@
 <h1> <%= @toilet.name %> </h1>
 <h3>toilets details</h3>
 <div> <%= @toilet.description %> </div>
+<h3>Book this toilet</h3>
+  <%= simple_form_for [@toilet, @booking] do |f| %>
+  <%= f.input :start_time,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :end_time,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+  <%= f.submit class: "btn btn-flat" %>
+<% end %>
