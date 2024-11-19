@@ -17,9 +17,19 @@ puts "there is #{User.count} users"
 puts "building toilets"
 
 celso_t = Toilet.create!(name: "my toilet", price: 50, address: "52 Bowl Dr.", description: "hello", user: celso)
-doug_t = Toilet.create(name: "your toilet", price: 100, address: "who cares", description: "i'm a toilet", user: doug)
-yann_t = Toilet.create(name: "alisa", price: 1, address: "an alleyway", description: "don't use this one", user: yann)
+file = File.open("app/assets/images/horse_toilet.jpg")
+celso_t.photo.attach(io: file, filename: "toilet.jpg", content_type: "image/jpg")
+celso_t.save
 
+doug_t = Toilet.create(name: "your toilet", price: 100, address: "who cares", description: "Ideal for couples", user: doug)
+file = File.open("app/assets/images/couple_toilet.jpg")
+doug_t.photo.attach(io: file, filename: "couple_toilet.jpg", content_type: "image/jpg")
+doug_t.save
+
+yann_t = Toilet.create(name: "alisa", price: 1, address: "an alleyway", description: "don't use this one", user: yann)
+file = File.open("app/assets/images/golden_toilet.webp")
+yann_t.photo.attach(io: file, filename: "golden_toilet.webp", content_type: "image/webp")
+yann_t.save
 puts "you now have #{Toilet.count} toilets"
 
 

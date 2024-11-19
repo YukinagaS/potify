@@ -1,7 +1,12 @@
-<h1> <%= @toilet.name %> </h1>
-<h3>toilets details</h3>
-<div> <%= @toilet.description %> </div>
-<h3>Book this toilet</h3>
+<div class="mt-3 mx-3">
+  <div class="card-product">
+    <%= cl_image_tag(@toilet.photo.key, width: 400, height: 300) %>
+    <div class="card-product-infos">
+      <h2><%= @toilet.name %></h2>
+      <p><b>Description: </b><%= @toilet.description %></p>
+    </div>
+  </div>
+  <h3>Book this toilet</h3>
   <%= simple_form_for [@toilet, @booking] do |f| %>
   <%= f.input :start_time,
             as: :string,
@@ -10,4 +15,5 @@
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
   <%= f.submit class: "btn btn-flat" %>
-<% end %>
+  <% end %>
+</div>
