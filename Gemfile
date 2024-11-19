@@ -78,3 +78,5 @@ end
 
 gem "devise"
 gem "ostruct"
+gem 'cloudinary', '~> 1.16.0'
+

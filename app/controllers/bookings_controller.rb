@@ -3,7 +3,11 @@ class BookingsController < ApplicationController
   # def new
   #   @booking = Booking.new
   # end
-
+  def index # users/:id/bookings
+    @user = User.find(params[:user_id])
+    @bookings = Booking.where(user: @user)
+  end
+  
   def create
     @booking = Booking.new(booking_params)
     @booking.toilet = @toilet

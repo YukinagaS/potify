@@ -3,6 +3,18 @@ Rails.application.routes.draw do
 
   root to: "toilets#index"
 
+  resources :toilets, only: [:new, :create, :show, :destroy, :index ] do
+    resources :bookings, only: [:create]
+    resources :reviews, only: [:create]
+  end
+
+  resources :bookings, only: [:index, :destroy]
+
+  resources :users, only: [:show] do
+    resources :bookings, only: [:index, :update]
+  end
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
