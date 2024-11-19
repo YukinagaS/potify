@@ -1,3 +1,9 @@
-<h1> <%= @toilet.name %> </h1>
-<h3>toilets details</h3>
-<div> <%= @toilet.description %> </div>
+<div class="mt-3 mx-3">
+  <div class="card-product">
+    <%= cl_image_tag(@toilet.photo.key, width: 400, height: 300) %>
+    <div class="card-product-infos">
+      <h2><%= @toilet.name %></h2>
+      <p><b>Description: </b><%= @toilet.description %></p>
+    </div>
+  </div>
+</div>
