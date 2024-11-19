@@ -8,6 +8,20 @@ class ToiletsController < ApplicationController
     @toilet = Toilet.find(params[:id])
   end
 
+  def new
+    @toilet = Toilet.new
+  end
+
+  def create
+    @toilet = Toilet.new(toilet_params)
+    @toilet.user = current_user
+    if @toilet.save
+      redirect_to toilet_path(@toilet)
+    else
+      render 'new', status: :unprocessable_entity
+    end
+  end
+
   private
 
   def toilet_params
