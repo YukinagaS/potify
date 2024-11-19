@@ -14,8 +14,9 @@ class ToiletsController < ApplicationController
 
   def create
     @toilet = Toilet.new(toilet_params)
+    @toilet.user = current_user
     if @toilet.save
-      redirect_to toilet_path
+      redirect_to toilet_path(@toilet)
     else
       render 'new', status: :unprocessable_entity
     end
