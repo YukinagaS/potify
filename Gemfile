@@ -77,3 +77,4 @@ end
 # Custom Adds
 
 gem "devise"
+gem "ostruct"
