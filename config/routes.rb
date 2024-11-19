@@ -8,11 +8,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
 
-  resources :bookings, only: [:index, :destroy]
-
-  resources :users, only: [:show] do
-    resources :bookings, only: [:index, :update]
-  end
+  resources :bookings, only: [:index, :destroy, :update]
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
