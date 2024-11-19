@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: "toilets#index"
 
-  resources :toilets, only: [:new, :create, :show, :destroy] do
+  resources :toilets, only: [:new, :create, :show, :destroy, :index ] do
     resources :bookings, only: [:create]
     resources :reviews, only: [:create]
   end
