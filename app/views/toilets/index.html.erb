@@ -1,5 +1,4 @@
 <h1>Browse Our Glorious Thrones</h1>
 <% @toilets.each do |toilet| %>
-  <h3><%=  toilet.name %>
-  <% end %>
-</h3>
+  <h3><%= link_to toilet.name, toilet_path(toilet) %></h3>
+<% end %>
