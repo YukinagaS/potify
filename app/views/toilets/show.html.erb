@@ -2,8 +2,8 @@
   <div class="card-product">
     <%= cl_image_tag(@toilet.photo.key, width: 400, height: 300) %>
     <div class="card-product-infos">
-      <h2><%= @toilet.name %></h2>
-      <p><b>Description: </b><%= @toilet.description %></p>
+      <h1><%= @toilet.name %></h1>
+      <p class="fs-4"><b><%= @toilet.description %></b></p>
     </div>
   </div>
 </div>
