@@ -1,30 +1,37 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-fixed-top">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <i class="fa-solid fa-toilet fs-1"></i>
-    <% end %>
+    <div class="d-flex flex-row">
+      <div>
+        <%= link_to toilets_path, class: "navbar-brand" do %>
+          <%# <i class="fa-solid fa-toilet fs-1"></i> %>
+          <%=image_tag('POTIFY_LOGO.png')%>
+        <% end %>
+      </div>
+      <p class="fs-6">The #1 choice for your numbers 1 and 2</p>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="input-group w-25">
+      <input type="search" class="form-control rounded" placeholder="Find a toilet near you" aria-label="EMERGENCY!" aria-describedby="search-addon" />
+      <button type="button" class="btn btn-custom" data-mdb-ripple-init>search</button>
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active" id="add-toilet">
+          <li class="nav-item active mx-2" id="add-toilet">
             <%= link_to "Add Your Toilet!", new_toilet_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
+          <%# <li class="nav-item">
+            <%# <%= link_to "Messages", "#", class: "nav-link" %>
+          <%# </li> %>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/lostonpurpose", class: "avatar", alt: "dropdown menu" %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "My Profile", "#", class: "dropdown-item" %>
+              <%= link_to "My Bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
