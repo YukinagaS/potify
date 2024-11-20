@@ -8,16 +8,20 @@
   </div>
 </div>
 <% if @toilet.user != current_user %>
-  <div class="my-4 mt-3 mx-3">
+  </div>
     <h3>Book this toilet</h3>
     <%= simple_form_for [@toilet, @booking] do |f| %>
-      <%= f.input :start_time,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-      <%= f.input :end_time,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-      <%= f.submit "Reserve This Toilet", url: bookings_path, class: "btn btn-custom" %>
+    <%= f.input :start_time,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+    <%= f.input :end_time,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+    <%= f.submit "Reserve This Toilet", url: bookings_path, class: "btn btn-custom" %>
     <% end %>
   </div>
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 <% end %>
