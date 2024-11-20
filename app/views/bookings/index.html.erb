@@ -21,6 +21,9 @@
               <p>Toilet name: <%= booking.toilet.name %>
               <p>Date: <%= booking.start_time %> - <%= booking.end_time %></p>
               <button type="button" class="btn btn-secondary custom-btn">PENDING CONFIRMATION</button>
+              <%= link_to booking_path(booking), class: "btn btn-danger custom-btn", data: { turbo_method: :delete, turbo_confirm: "Cancel pooping?" } do %>
+              <span>CANCEL BOOKING</span>
+              <% end %>
             </div>
           <% end %>
         </ul>
