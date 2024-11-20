@@ -3,7 +3,13 @@
     <div class="col col-sm-8">
       <div class="mt-3 mx-3">
         <div class="card-product">
-          <%= cl_image_tag(@toilet.photo.key, width: 400, height: 300) %>
+          <div class="image-gallery">
+            <% @toilet.photos.each do |photo| %>
+              <div class="image-item">
+                <%= cl_image_tag(photo.key, width: 400, height: 300) %>
+              </div>
+            <% end %>
+          </div>
           <div class="card-product-infos">
             <h1><%= @toilet.name %></h1>
             <p class="fs-4"><b><%= @toilet.description %></b></p>
