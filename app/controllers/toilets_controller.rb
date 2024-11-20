@@ -2,6 +2,13 @@ class ToiletsController < ApplicationController
   skip_before_action :authenticate_user!, except: :index
   def index
     @toilets = Toilet.all
+    @markers = @toilets.geocoded.map do |toilet|
+      {
+        lat: toilet.latitude,
+        lng: toilet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {toilet: toilet})
+      }
+    end
   end
 
   def show
