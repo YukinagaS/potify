@@ -7,3 +7,17 @@
     </div>
   </div>
 </div>
+<% if @toilet.user != current_user %>
+</div>
+  <h3>Book this toilet</h3>
+  <%= simple_form_for [@toilet, @booking] do |f| %>
+  <%= f.input :start_time,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :end_time,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+  <%= f.submit class: "btn btn-flat" %>
+  <% end %>
+</div>
+<% end %>
