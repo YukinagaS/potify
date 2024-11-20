@@ -1,0 +1,21 @@
+.nav-link {
+background-color: #DDD0D0;
+  &:hover {
+    background-color: #765656;
+  }
+}
+
+.nav-tabs {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Customize the shadow as needed */
+}
+
+.tab-pane {
+  background-color: white;
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link.active {
+background-color: white;
+
+}

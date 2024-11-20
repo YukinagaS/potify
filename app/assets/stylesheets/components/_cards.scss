@@ -7,10 +7,11 @@
   align-items: center;
 }
 
-.card-product img {
-  height: 100%;
-  width: 220px;
+.cards-product img {
+  // height: 100%;
+  width: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .card-product h2 {
@@ -29,4 +30,10 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.cards-product{
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 16px;
 }
