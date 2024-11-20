@@ -2,7 +2,9 @@ class BookingsController < ApplicationController
 
   def index # users/:id/bookings
     @user = current_user
-    @bookings = Booking.where(user: @user)
+    @toilets = @user.toilets
+    @toilet_bookings = Booking.where(toilet_id: @toilets)
+    @bookings = @user.bookings
   end
 
   def create
@@ -17,7 +19,6 @@ class BookingsController < ApplicationController
     else
       render "toilets/show", status: :unprocessable_entity
     end
-
   end
 
   private
