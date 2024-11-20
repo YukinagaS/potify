@@ -55,7 +55,7 @@ denis_t.photo.attach(io: file, filename: "BAR.jpg", content_type: "image/jpg")
 denis_t.save
 
 12.times do |index|
-  toilet = Toilet.create!(name: "#{Faker::FunnyName.name} #{index}", price: (5..100).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city} #{index}", description: "#{Faker::Quote.jack_handey} #{index}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+  toilet = Toilet.create!(name: "#{Faker::FunnyName.name} #{index}", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city} #{index}", description: "#{Faker::Quote.jack_handey} #{index}", user: [yann, stuart, denis, alisa, doug, celso].sample)
   file = File.open(["app/assets/images/BAR.jpg", "app/assets/images/01.jpg", "app/assets/images/02.webp", "app/assets/images/03.jpg", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.jpg", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
   toilet.photo.attach(io: file, filename: "BAR.jpg", content_type: "image/jpg")
   toilet.save
