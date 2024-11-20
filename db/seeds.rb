@@ -30,6 +30,25 @@ yann_t = Toilet.create(name: "alisa", price: 1, address: "an alleyway", descript
 file = File.open("app/assets/images/golden_toilet.webp")
 yann_t.photo.attach(io: file, filename: "golden_toilet.webp", content_type: "image/webp")
 yann_t.save
+
+
+toilet_2 = Toilet.create!(name: "hello kitty", price: 50, address: "52 Bowl Dr.", description: "strong params", user: celso)
+file = File.open("app/assets/images/scary.jpg")
+toilet_2.photo.attach(io: file, filename: "scary.jpg", content_type: "image/jpg")
+toilet_2.save
+
+
+toilet_3 = Toilet.create(name: "cool biz", price: 100, address: "who cares", description: "for relaxing times", user: doug)
+file = File.open("app/assets/images/chains.jpg")
+toilet_3.photo.attach(io: file, filename: "chains.jpg", content_type: "image/jpg")
+toilet_3.save
+
+
+toilet_4 = Toilet.create(name: "captain AND tenille", price: 1, address: "hell", description: "good god, you're going to have fun", user: yann)
+file = File.open("app/assets/images/BAR.jpg")
+toilet_4.photo.attach(io: file, filename: "BAR.jpg", content_type: "image/jpg")
+toilet_4.save
+
 puts "you now have #{Toilet.count} toilets"
 
 
