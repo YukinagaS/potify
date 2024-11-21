@@ -7,7 +7,6 @@ class ToiletsController < ApplicationController
         lat: toilet.latitude,
         lng: toilet.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {toilet: toilet})
-        marker_html: render_to_string(partial: "marker")
       }
     end
   end
@@ -21,7 +20,8 @@ class ToiletsController < ApplicationController
       {
         lat: @toilet.latitude,
         lng: @toilet.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {toilet: @toilet})
+        info_window_html: render_to_string(partial: "info_window", locals: {toilet: @toilet}),
+        marker_html: render_to_string(partial: "marker")
       }
     ]
   end
