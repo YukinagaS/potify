@@ -54,14 +54,22 @@
     </div>
   </div>
 </div>
-<div class="container">
-      <h2>Bookings for My Toilets</h2>
-      <ul>
-        <% @toilet_bookings.each do |t_booking| %>
+<table class="table">
+  <h3>Bookings for My Toilets</h3>
+  <thead>
+    <th scope="col">Toilet</th>
+    <th scope="col">Status</th>
+    <th scope="col">Start Time</th>
+    <th scope="col">Approve/Decline</th>
+  </thead>
+  <tbody>
+      <% @toilet_bookings.each do |t_booking| %>
+        <tr>
           <% unless t_booking.status == "declined" %>
-            <li>
-              <%= t_booking.toilet.name %> -
-              <%= t_booking.status %>
+            <th scope="row"><%= t_booking.toilet.name %></th>
+            <td><%= t_booking.status.capitalize %></td>
+            <td><%= t_booking.start_time %></td>
+            <td>
               <%= link_to booking_path(t_booking, update_action: "approved"), class: "btn-potify btn-potify-green", data: { turbo_method: :patch, turbo_confirm: "Approve booking?" } do %>
                 <%= image_tag('check_circle.svg', size: '14') %>
                 <span>APPROVE</span>
@@ -70,8 +78,9 @@
                 <%= image_tag('cancel_circle.svg', size: '14') %>
                 <span>DECLINE</span>
               <% end %>
-            </li>
+            </td>
           <% end %>
-        <% end %>
-      </ul>
-</div>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
