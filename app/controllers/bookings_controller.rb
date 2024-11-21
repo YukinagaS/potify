@@ -13,7 +13,10 @@ class BookingsController < ApplicationController
   def create
     @user = current_user
     @toilet = Toilet.find(params[:toilet_id])
-    @booking = Booking.new(booking_params)
+    date_params = booking_params
+    start_time = DateTime.parse("#{date_params[:date]}T#{date_params[:start_time]}")
+    end_time = DateTime.parse("#{date_params[:date]}T#{date_params[:end_time]}")
+    @booking = Booking.new(start_time: start_time, end_time: end_time)
     @booking.user = @user
     @booking.toilet = @toilet
     @booking.status = "pending"
@@ -40,6 +43,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time)
+    params.require(:booking).permit(:start_time, :end_time, :date)
   end
 end
