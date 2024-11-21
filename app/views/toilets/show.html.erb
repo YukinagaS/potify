@@ -40,27 +40,25 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-  </div>
-</div>
-<div class="col col-sm-4">
-  <div>
-    <% if @toilet.user != current_user %>
-      <div class="mt-5">
-        <h3>Book this toilet</h3>
-        <%= simple_form_for [@toilet, @booking] do |f| %>
-          <%= f.input :start_time,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } } %>
-          <%= f.input :end_time,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } } %>
-          <%= f.submit "Reserve This Toilet", url: bookings_path, class: "btn btn-custom mb-5" %>
-        <% end %>
-        <%# User Review Form %>
-        <h3>Leave a Review</h3>
-        <%= simple_form_for [@toilet, @review] do |f| %>
-          <%= f.input :content %>
-          <%= f.submit "Leave Review", url: toilet_reviews_path(@toilet), class: "btn btn-custom mb-5" %>
+    <div class="col col-sm-4">
+      <div>
+        <% if @toilet.user != current_user %>
+          <div class="mt-5">
+            <h3>Book this toilet</h3>
+            <%= simple_form_for [@toilet, @booking] do |f| %>
+              <input type="date" name="booking[date]" data-controller="datepicker">
+              <% time_slots = ["9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"] %>
+              <%= f.input :start_time, as: :select, collection: time_slots %>
+              <%= f.input :end_time, as: :select, collection: time_slots %>
+              <%= f.submit "Reserve This Toilet", url: bookings_path, class: "btn btn-custom mb-5" %>
+            <% end %>
+            <%# User Review Form %>
+            <h3>Leave a Review</h3>
+            <%= simple_form_for [@toilet, @review] do |f| %>
+              <%= f.input :content %>
+              <%= f.submit "Leave Review", url: toilet_reviews_path(@toilet), class: "btn btn-custom mb-5" %>
+            <% end %>
+          </div>
         <% end %>
       </div>
     <% end %>

@@ -16,6 +16,14 @@ class ToiletsController < ApplicationController
     @booking = Booking.new
     @review = Review.new
     @reviews = @toilet.reviews.all
+    @markers = [
+      {
+        lat: @toilet.latitude,
+        lng: @toilet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {toilet: @toilet}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    ]
   end
 
   def new

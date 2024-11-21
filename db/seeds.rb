@@ -74,7 +74,7 @@ denis_t.photos.attach(io: file, filename: "BAR.jpg", content_type: "image/jpg")
 denis_t.save
 
 12.times do |index|
-  toilet = Toilet.create!(name: "#{Faker::FunnyName.name} #{index}", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city} #{index}", description: "#{Faker::Quote.jack_handey} #{index}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+  toilet = Toilet.create!(name: "#{Faker::FunnyName.name} #{index}", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city} #{index}", description: "#{Faker::Quote.most_interesting_man_in_the_world} #{index}", user: [yann, stuart, denis, alisa, doug, celso].sample)
   file = File.open(["app/assets/images/BAR.jpg", "app/assets/images/01.jpg", "app/assets/images/02.webp", "app/assets/images/03.jpg", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.jpg", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
   toilet.photos.attach(io: file, filename: "BAR.jpg", content_type: "image/jpg")
   toilet.save
@@ -90,14 +90,14 @@ date1 = Date.today
 date2 = Date.today-2
 date3 = Date.today-3
 
-Booking.create!(user: celso, toilet: celso_t, start_time: date1, end_time: date2)
-Booking.create!(user: doug, toilet: doug_t, start_time: date2, end_time: date3)
-Booking.create!(user: yann, toilet: yann_t, start_time: date3, end_time: date1)
-Booking.create!(user: stuart, toilet: stuart_t, start_time: date1, end_time: date2)
-Booking.create!(user: alisa, toilet: alisa_t, start_time: date2, end_time: date3)
-Booking.create!(user: denis, toilet: denis_t, start_time: date3, end_time: date1)
-Booking.create!(user: stuart, toilet: stuart_t, start_time: date1, end_time: date2)
-Booking.create!(user: alisa, toilet: alisa_t, start_time: date2, end_time: date3)
-Booking.create!(user: denis, toilet: denis_t, start_time: date3, end_time: date1)
+Booking.create!(user: celso, toilet: celso_t, start_time: date1, end_time: date2, status: "pending")
+Booking.create!(user: doug, toilet: doug_t, start_time: date2, end_time: date3, status: "pending")
+Booking.create!(user: yann, toilet: yann_t, start_time: date3, end_time: date1, status: "pending")
+Booking.create!(user: stuart, toilet: stuart_t, start_time: date1, end_time: date2, status: "pending")
+Booking.create!(user: alisa, toilet: alisa_t, start_time: date2, end_time: date3, status: "pending")
+Booking.create!(user: denis, toilet: denis_t, start_time: date3, end_time: date1, status: "pending")
+Booking.create!(user: stuart, toilet: stuart_t, start_time: date1, end_time: date2, status: "pending")
+Booking.create!(user: alisa, toilet: alisa_t, start_time: date2, end_time: date3, status: "pending")
+Booking.create!(user: denis, toilet: denis_t, start_time: date3, end_time: date1, status: "pending")
 
 puts "there are now #{Booking.count} bookings as well"
