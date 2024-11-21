@@ -12,17 +12,27 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="my-bookings-tab-pane" role="tabpanel" aria-labelledby="my-bookings-tab" tabindex="0">
+    <% if @bookings.empty? %>
+      <h4>You have no current bookings.</h4>
+    <% end %>
     <div>
       <div class="cards-product">
           <% @bookings.each do |booking| %>
-            <%= cl_image_tag(booking.toilet.photo.key) %>
+            <%= cl_image_tag(booking.toilet.photos.first.key) %>
             <div>
               <h4><b>Reservation details</b></h4>
               <p>Toilet name: <%= booking.toilet.name %>
               <p>Date: <%= booking.start_time %> - <%= booking.end_time %></p>
-              <button type="button" class="btn btn-secondary custom-btn">PENDING CONFIRMATION</button>
-              <%= link_to booking_path(booking), class: "btn btn-danger custom-btn", data: { turbo_method: :delete, turbo_confirm: "Cancel pooping?" } do %>
-              <span>CANCEL BOOKING</span>
+              <% if booking.status == "declined" %>
+                <div class="btn-potify-status status-declined">CONFIRMATION <%= booking.status.upcase %></div>
+                <%= link_to booking_path(booking), class: "btn-potify btn-potify-red", data: { turbo_method: :delete, turbo_confirm: "Confirm cancellation?" } do %>
+                <span>CONFIRM & REMOVE</span>
+                <% end %>
+              <% else %>
+                <div class="btn-potify-status status-<%= booking.status %>" >CONFIRMATION <%= booking.status.upcase %></div>
+                <%= link_to booking_path(booking), class: "btn-potify btn-potify-red", data: { turbo_method: :delete, turbo_confirm: "Cancel pooping?" } do %>
+                <span>CANCEL BOOKING</span>
+                <% end %>
               <% end %>
             </div>
           <% end %>
@@ -52,12 +62,12 @@
             <li>
               <%= t_booking.toilet.name %> -
               <%= t_booking.status %>
-              <%= link_to booking_path(t_booking, update_action: "approved"), class: "btn btn-success custom-btn", data: { turbo_method: :patch, turbo_confirm: "Approve booking?" } do %>
-                <%= image_tag('check_circle.svg') %>
+              <%= link_to booking_path(t_booking, update_action: "approved"), class: "btn-potify btn-potify-green", data: { turbo_method: :patch, turbo_confirm: "Approve booking?" } do %>
+                <%= image_tag('check_circle.svg', size: '14') %>
                 <span>APPROVE</span>
               <% end %>
-              <%= link_to booking_path(t_booking, update_action: "declined"), class: "btn btn-danger custom-btn", data: { turbo_method: :patch, turbo_confirm: "Decline booking?" } do %>
-                <%= image_tag('cancel_circle.svg') %>
+              <%= link_to booking_path(t_booking, update_action: "declined"), class: "btn-potify btn-potify-red", data: { turbo_method: :patch, turbo_confirm: "Decline booking?" } do %>
+                <%= image_tag('cancel_circle.svg', size: '14') %>
                 <span>DECLINE</span>
               <% end %>
             </li>
