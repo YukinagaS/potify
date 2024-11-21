@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :toilets
   has_many :bookings
   has_many :reviews
-
+  has_one_attached :profile_picture
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
 

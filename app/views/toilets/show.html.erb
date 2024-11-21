@@ -33,8 +33,13 @@
           <p class="fs-4"><b>¥<%= @toilet.price %></b> / hour</p>
         </div>
         <!-- User Reviews Section -->
-        <div>
-          <%= @toilet.user.name %>
+        <hr style="border: 1px solid #ccc;">
+        <div class="owner-info">
+          <%= cl_image_tag @toilet.user.profile_picture.key, class: "avatar" %>
+          <div class="owner-details">
+            <h6>Toilet Owner</h6>
+            <p><%= @toilet.user.name %></p>
+          </div>
         </div>
         <hr style="border: 1px solid #ccc;">
         <div class="key-info-box">
