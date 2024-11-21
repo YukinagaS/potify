@@ -35,6 +35,9 @@ celso_t.save
 file = File.open("app/assets/images/mirror.png")
 celso_t.photos.attach(io: file, filename: "mirror.png", content_type: "image/png")
 celso_t.save
+file = File.open("app/assets/images/horse.png")
+celso_t.photos.attach(io: file, filename: "horse.png", content_type: "image/png")
+celso_t.save
 
 doug_t = Toilet.create(name: "Grandma's Party", price: 100, address: "who cares", description: "Ideal for couples", user: doug)
 file = File.open("app/assets/images/couple_toilet.jpg")
