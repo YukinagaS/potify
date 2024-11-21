@@ -10,14 +10,32 @@ Booking.destroy_all
 puts "making users..."
 
 celso = User.create!(email: "turd@celso.com", name: "Celso", password: "123456")
-photo = File.open("app/assets/images/celso.png")
-celso.profile_picture.attach(io: photo, filename: "celso.png", content_type: "image/png")
+photo = File.open("app/assets/images/celso1.png")
+celso.profile_picture.attach(io: photo, filename: "celso1.png", content_type: "image/png")
 celso.save
+
 doug = User.create!(email: "turd@doug.com", name: "Doug", password: "123456")
+photo = File.open("app/assets/images/doug.png")
+doug.profile_picture.attach(io: photo, filename: "doug.png", content_type: "image/png")
+doug.save
+
 yann = User.create!(email: "turd@yann.com", name: "Yann", password: "123456")
+photo = File.open("app/assets/images/yann.png")
+yann.profile_picture.attach(io: photo, filename: "yann.png", content_type: "image/png")
+yann.save
+
 stuart = User.create!(email: "turd@stuart.com", name: "Stuart", password: "123456")
+
 alisa = User.create!(email: "turd@alisa.com", name: "Alisa", password: "123456")
+photo = File.open("app/assets/images/alisa.png")
+alisa.profile_picture.attach(io: photo, filename: "alisa.png", content_type: "image/png")
+alisa.save
+
 denis = User.create!(email: "turd@denis.com", name: "Denis", password: "123456")
+photo = File.open("app/assets/images/denis.png")
+denis.profile_picture.attach(io: photo, filename: "denis.png", content_type: "image/png")
+denis.save
+
 will = User.create!(email: "turd@dwill.com", name: "Will", password: "123456")
 
 puts "there are #{User.count} users"
@@ -48,7 +66,7 @@ file = File.open("app/assets/images/couple_toilet.jpg")
 doug_t.photos.attach(io: file, filename: "couple_toilet.jpg", content_type: "image/jpg")
 doug_t.save
 
-yann_t = Toilet.create(name: "The Alisa", price: 1, address: "an alleyway", description: "This luxurious Golden and Marble Elegant Toilet combines the timeless beauty of marble with the opulence of gold accents. The smooth marble surface and rich gold fixtures create a stunning contrast, adding sophistication and grandeur to any bathroom. Perfect for upscale spaces, it offers both elegance and modern functionality for an unforgettable bathroom experience.", user: yann)
+yann_t = Toilet.create(name: "The Golden Throne", price: 1, address: "an alleyway", description: "This luxurious Golden and Marble Elegant Toilet combines the timeless beauty of marble with the opulence of gold accents. The smooth marble surface and rich gold fixtures create a stunning contrast, adding sophistication and grandeur to any bathroom. Perfect for upscale spaces, it offers both elegance and modern functionality for an unforgettable bathroom experience.", user: yann)
 file = File.open("app/assets/images/golden_toilet.webp")
 yann_t.photos.attach(io: file, filename: "golden_toilet.webp", content_type: "image/webp")
 yann_t.save
