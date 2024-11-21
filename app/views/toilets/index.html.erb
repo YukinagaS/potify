@@ -1,8 +1,8 @@
 <div class="container mb-3">
   <h1 class="text-center my-4">Browse Our Glorious Thrones</h1>
-  <div class="cards" id="index-card-text">
+  <div class="cards mx-5" id="index-card-text">
     <% @toilets.each do |toilet| %>
-      <div class="card">
+      <div class="card card-rounded-top">
         <!-- Check if the toilet has multiple photos -->
         <% if toilet.photos.count > 1 %>
           <!-- Carousel for toilets with multiple photos -->
@@ -27,7 +27,8 @@
           </div>
         <% else %>
           <!-- For toilets with a single photo, display that photo as a background or image -->
-          <div class="single-photo">
+          <div class="single-photo card-rounded-top">
+            <%= link_to "", toilet_path(toilet), class: "card-link" %>
             <%= cl_image_tag toilet.photos.first.key, alt: "Toilet photo", class: "w-100 image-size"%>
           </div>
         <% end %>
