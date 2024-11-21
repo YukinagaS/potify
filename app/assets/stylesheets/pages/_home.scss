@@ -2,7 +2,7 @@
 #index-card-text a:link {
     text-decoration: none;
     font-size: x-large;
-    padding: 5px;
+    text-align: center;
     text-align: center;
     color: rgb(0, 0, 0);
 }
@@ -12,5 +12,9 @@
     font-size: x-large;
     padding: 5px;
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
+}
+
+h1 {
+    font-family: "Inter";
 }
