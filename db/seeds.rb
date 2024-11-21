@@ -15,6 +15,7 @@ yann = User.create!(email: "turd@yann.com", name: "Yann", password: "123456")
 stuart = User.create!(email: "turd@stuart.com", name: "Stuart", password: "123456")
 alisa = User.create!(email: "turd@alisa.com", name: "Alisa", password: "123456")
 denis = User.create!(email: "turd@denis.com", name: "Denis", password: "123456")
+will = User.create!(email: "turd@dwill.com", name: "Will", password: "123456")
 
 puts "there are #{User.count} users"
 
@@ -57,6 +58,17 @@ yann_t.save
 file = File.open("app/assets/images/golden2.png")
 yann_t.photos.attach(io: file, filename: "golden2.png", content_type: "image/png")
 yann_t.save
+
+will_t = Toilet.create(name: "The Cadillac", price: 800, address: "an alleyway", description: "Experience the perfect blend of style and comfort with the Cadillac Toilet. Inspired by the sleek lines and elegance of a Cadillac, this toilet offers plush seating and smooth, efficient performance. A true statement piece for those who appreciate luxury, it brings automotive flair and first-class comfort to your bathroom.", user: will)
+file = File.open("app/assets/images/cadillac2.png")
+will_t.photos.attach(io: file, filename: "golden_toilet.png", content_type: "image/webp")
+will_t.save
+file = File.open("app/assets/images/cadillac3.png")
+will_t.photos.attach(io: file, filename: "golden_toilet.webp", content_type: "image/webp")
+will_t.save
+file = File.open("app/assets/images/cadillac1.png")
+will_t.photos.attach(io: file, filename: "golden_toilet.webp", content_type: "image/png")
+will_t.save
 
 
 stuart_t = Toilet.create!(name: "Hello Kitty", price: 50, address: "52 Bowl Dr.", description: "strong params", user: celso)
