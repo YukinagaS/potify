@@ -1,7 +1,60 @@
 .custom-btn {
-  background-color: #888888;  /* Green background */
+  background-color: $potify-grey;  /* Grey background */
   color: white;               /* White text */
   border-radius: 10px;        /* Rounded corners */
   font-size: 12px;            /* Increase font size */
   padding: 10px 20px;         /* Padding for larger button */
+}
+
+.btn-potify {
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+  padding: .5em .8em;
+  margin: 3px;
+  border-radius: 10px;
+  transition: 0.3s cubic-bezier(0.3, 0, 0.3, 1)
+}
+
+.btn-potify-status {
+  font-size: 12px;
+  color: $potify-black;
+  border: 1px solid $potify-black;
+  display: inline-block;
+  background-color: none;
+  text-decoration: none;
+  padding: .5em .8em;
+  margin: 3px;
+  transition: 0.3s cubic-bezier(0.3, 0, 0.3, 1)
+}
+
+.status-approved {
+  color: $potify-green;
+  border: 1px solid $potify-green;
+}
+
+.status-pending {
+  color: $potify-grey;
+  border: 1px solid $potify-grey;
+}
+
+.status-declined {
+  color: $potify-accent;
+  border: 1px solid $potify-accent;
+}
+
+.btn-potify-green {
+  background-color: $potify-green;
+}
+
+.btn-potify-green:hover {
+  background-color: $potify-green-hover;
+}
+
+.btn-potify-red {
+  background-color: $potify-accent;
+}
+
+.btn-potify-red:hover {
+  background-color: $potify-accent-hover;
 }

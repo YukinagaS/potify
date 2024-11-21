@@ -83,14 +83,14 @@ date1 = Date.today
 date2 = Date.today-2
 date3 = Date.today-3
 
-Booking.create!(user: celso, toilet: celso_t, start_time: date1, end_time: date2)
-Booking.create!(user: doug, toilet: doug_t, start_time: date2, end_time: date3)
-Booking.create!(user: yann, toilet: yann_t, start_time: date3, end_time: date1)
-Booking.create!(user: stuart, toilet: stuart_t, start_time: date1, end_time: date2)
-Booking.create!(user: alisa, toilet: alisa_t, start_time: date2, end_time: date3)
-Booking.create!(user: denis, toilet: denis_t, start_time: date3, end_time: date1)
-Booking.create!(user: stuart, toilet: stuart_t, start_time: date1, end_time: date2)
-Booking.create!(user: alisa, toilet: alisa_t, start_time: date2, end_time: date3)
-Booking.create!(user: denis, toilet: denis_t, start_time: date3, end_time: date1)
+Booking.create!(user: celso, toilet: celso_t, start_time: date1, end_time: date2, status: "pending")
+Booking.create!(user: doug, toilet: doug_t, start_time: date2, end_time: date3, status: "pending")
+Booking.create!(user: yann, toilet: yann_t, start_time: date3, end_time: date1, status: "pending")
+Booking.create!(user: stuart, toilet: stuart_t, start_time: date1, end_time: date2, status: "pending")
+Booking.create!(user: alisa, toilet: alisa_t, start_time: date2, end_time: date3, status: "pending")
+Booking.create!(user: denis, toilet: denis_t, start_time: date3, end_time: date1, status: "pending")
+Booking.create!(user: stuart, toilet: stuart_t, start_time: date1, end_time: date2, status: "pending")
+Booking.create!(user: alisa, toilet: alisa_t, start_time: date2, end_time: date3, status: "pending")
+Booking.create!(user: denis, toilet: denis_t, start_time: date3, end_time: date1, status: "pending")
 
 puts "there are now #{Booking.count} bookings as well"
