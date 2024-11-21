@@ -11,6 +11,7 @@
               <!-- Loop through each photo for the carousel -->
               <% toilet.photos.each_with_index do |photo, index| %>
                 <div class="carousel-item <%= 'active' if index == 0 %>">
+                  <%= link_to "", toilet_path(toilet), class: "card-link" %>
                   <%= cl_image_tag photo.key, class: "d-block w-100 image-size", alt: "Toilet photo #{index + 1}" %>
                 </div>
               <% end %>
@@ -35,6 +36,7 @@
         <div class="card-body d-flex flex-column">
           <div class="d-flex justify-content-between mb-2">
             <h5 class="card-title encode-sans-title">
+              <%= link_to "", toilet_path(toilet), class: "card-link" %>
               <%= link_to toilet.name, toilet_path(toilet) %>
             </h5>
             <div class="btn btn-custom align-self-start">Book!</div>
