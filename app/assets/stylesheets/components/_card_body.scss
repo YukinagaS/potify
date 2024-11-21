@@ -1,0 +1,17 @@
+.card-body {
+    font-family: "Encode Sans";
+    font-size: small;
+
+}
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.encode-sans-title {
+    font-family: "Encode Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+      "width" 100;
+  }

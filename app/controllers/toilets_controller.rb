@@ -16,6 +16,12 @@ class ToiletsController < ApplicationController
     @booking = Booking.new
     @review = Review.new
     @reviews = @toilet.reviews.all
+    @markers = [
+      {
+        lat: @toilet.latitude,
+        lng: @toilet.longitude
+      }
+    ]
   end
 
   def new

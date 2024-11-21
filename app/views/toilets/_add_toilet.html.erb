@@ -1,8 +1,10 @@
-<%= simple_form_for @toilet do |f| %>
-  <%= f.input :name %>
-  <%= f.input :price %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Create Commode" %>
-<% end %>
+<div class="container d-flex justify-content-center">
+  <%= simple_form_for @toilet do |f| %>
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Create Commode", class: "btn btn-custom my-3" %>
+  <% end %>
+</div>

@@ -31,9 +31,20 @@
             <%= cl_image_tag toilet.photos.first.key, alt: "Toilet photo", class: "w-100 image-size"%>
           </div>
         <% end %>
-        <div class="card-body">
-          <h5 class="card-title"> <%= link_to toilet.name, toilet_path(toilet) %></h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="card-body d-flex flex-column">
+          <div class="d-flex justify-content-between mb-2">
+            <h5 class="card-title encode-sans-title">
+              <%= link_to toilet.name, toilet_path(toilet) %>
+            </h5>
+            <div class="btn btn-custom align-self-start">Book!</div>
+          </div>
+          <div class="flex-grow-1 mb-2">
+            <p class="card-text"><%=  toilet.description %></p>
+          </div>
+          <p class="mb-0 mt-2 fs-6"><b>
+              ¥<%= toilet.price %>/Hour
+            </b>
+          </p>
         </div>
       </div>
       <!-- Link to the toilet's page -->
