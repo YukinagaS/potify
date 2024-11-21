@@ -21,12 +21,19 @@ puts "there are #{User.count} users"
 
 puts "building toilets..."
 
-celso_t = Toilet.create!(name: "The Duchess", price: 50, address: "52 Bowl Dr.", description: "status: unprocessable_entity", user: celso)
+celso_t = Toilet.create!(name: "The Duchess", price: 50, address: "52 Bowl Dr.", description: "The Duchess is a horse-shaped toilet crafted from glossy porcelain with antique gold accents. The horse’s head forms the tank, while the flowing mane and tail add elegance and stability.
+
+The integrated seat mirrors the horse’s back for comfort, and a playful mirror at the bottom offers a unique twist.
+
+Combining art, luxury, and function, The Duchess is a regal and whimsical statement piece for any bathroom.", user: celso)
 file = File.open("app/assets/images/horse_toilet.jpg")
 celso_t.photos.attach(io: file, filename: "toilet.jpg", content_type: "image/jpg")
 celso_t.save
 file = File.open("app/assets/images/toilet_paper.jpg")
 celso_t.photos.attach(io: file, filename: "toilet_paper.jpg", content_type: "image/jpg")
+celso_t.save
+file = File.open("app/assets/images/mirror.png")
+celso_t.photos.attach(io: file, filename: "mirror.png", content_type: "image/png")
 celso_t.save
 
 doug_t = Toilet.create(name: "Grandma's Party", price: 100, address: "who cares", description: "Ideal for couples", user: doug)
@@ -34,7 +41,7 @@ file = File.open("app/assets/images/couple_toilet.jpg")
 doug_t.photos.attach(io: file, filename: "couple_toilet.jpg", content_type: "image/jpg")
 doug_t.save
 
-yann_t = Toilet.create(name: "The Alisa", price: 1, address: "an alleyway", description: "don't use this one", user: yann)
+yann_t = Toilet.create(name: "The Alisa", price: 1, address: "an alleyway", description: "This luxurious Golden and Marble Elegant Toilet combines the timeless beauty of marble with the opulence of gold accents. The smooth marble surface and rich gold fixtures create a stunning contrast, adding sophistication and grandeur to any bathroom. Perfect for upscale spaces, it offers both elegance and modern functionality for an unforgettable bathroom experience.", user: yann)
 file = File.open("app/assets/images/golden_toilet.webp")
 yann_t.photos.attach(io: file, filename: "golden_toilet.webp", content_type: "image/webp")
 yann_t.save
@@ -42,10 +49,10 @@ file = File.open("app/assets/images/gold-plated-toilet.webp")
 yann_t.photos.attach(io: file, filename: "golden_toilet.webp", content_type: "image/webp")
 yann_t.save
 file = File.open("app/assets/images/golden1.png")
-yann_t.photos.attach(io: file, filename: "golden_toilet.webp", content_type: "image/webp")
+yann_t.photos.attach(io: file, filename: "golden_toilet.webp", content_type: "image/png")
 yann_t.save
-file = File.open("app/assets/images/gold-plated-toilet.webp")
-yann_t.photos.attach(io: file, filename: "golden2.png", content_type: "image/webp")
+file = File.open("app/assets/images/golden2.png")
+yann_t.photos.attach(io: file, filename: "golden2.png", content_type: "image/png")
 yann_t.save
 
 

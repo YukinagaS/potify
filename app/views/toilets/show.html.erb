@@ -1,65 +1,84 @@
 <div class="container">
   <div class="row">
-    <div class="col col-sm-8">
+    <div class="col col-md-7 mt-3" style="padding: 0; border: none;">
       <div class="mt-3 mx-3">
         <div class="card-product">
           <div class="image-gallery">
-            <% @toilet.photos.each do |photo| %>
-              <div class="image-item">
-                <%= cl_image_tag(photo.key, width: 400, height: 300) %>
-              </div>
-            <% end %>
-          </div>
-          <div class="card-product-infos">
-            <h1><%= @toilet.name %></h1>
-            <p class="fs-4"><b><%= @toilet.description %></b></p>
-            <p class="fs-4">¥<b><%= @toilet.price %></b></p>
+            <% @toilet.photos.each_with_index do |photo, index| %>
+              <% if index == 0 %>
+                <!-- First image with a larger size -->
+                <%= cl_image_tag(photo.key) %> <!-- Size for the first image -->
+              <% elsif index == 1 %>
+                <!-- Start grouping images 2, 3, and 4 -->
+                <div class="other-images">
+                  <%= cl_image_tag(photo.key) %> <!-- Image 2 -->
+                <% elsif index.between?(2, 3) %>
+                  <!-- Images 3 and 4 -->
+                  <%= cl_image_tag(photo.key) %> <!-- Image 3 and 4 -->
+                <% else %>
+                  <!-- Optional: Handle images after 4 if needed -->
+                  <div class="other-images">
+                    <%= cl_image_tag(photo.key) %>
+                  </div>
+                <% end %>
+              <% end %>
+              <!-- Close the div after image 4 -->
+            </div>
           </div>
         </div>
-        <div style="width: 100%; height: 600px;"
+        <div class="card-product-infos mt-3">
+          <h2><b><%= @toilet.name %></b></h2>
+          <p class="fs-6"><%= @toilet.description %></p>
+          <p class="fs-4"><b>¥<%= @toilet.price %></b> / hour</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mt-3">
+      <div id="map" class="map-container"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
       </div>
     </div>
-    <div class="col col-sm-4">
-      <div>
-        <% if @toilet.user != current_user %>
-          <div class="mt-5">
-            <h3>Book this toilet</h3>
-            <%= simple_form_for [@toilet, @booking] do |f| %>
-              <%= f.input :start_time,
+  </div>
+</div>
+<div class="col col-sm-4">
+  <div>
+    <% if @toilet.user != current_user %>
+      <div class="mt-5">
+        <h3>Book this toilet</h3>
+        <%= simple_form_for [@toilet, @booking] do |f| %>
+          <%= f.input :start_time,
               as: :string,
               input_html: { data: { controller: "datepicker" } } %>
-              <%= f.input :end_time,
+          <%= f.input :end_time,
               as: :string,
               input_html: { data: { controller: "datepicker" } } %>
-              <%= f.submit "Reserve This Toilet", url: bookings_path, class: "btn btn-custom mb-5" %>
-            <% end %>
-            <%# User Review Form %>
-            <h3>Leave a Review</h3>
-            <%= simple_form_for [@toilet, @review] do |f| %>
-              <%= f.input :content %>
-              <%= f.submit "Leave Review", url: toilet_reviews_path(@toilet), class: "btn btn-custom mb-5" %>
-            <% end %>
-          </div>
+          <%= f.submit "Reserve This Toilet", url: bookings_path, class: "btn btn-custom mb-5" %>
+        <% end %>
+        <%# User Review Form %>
+        <h3>Leave a Review</h3>
+        <%= simple_form_for [@toilet, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.submit "Leave Review", url: toilet_reviews_path(@toilet), class: "btn btn-custom mb-5" %>
         <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
-  <%# User Review Display Area %>
-  <div class="row">
-    <div class="col-12 mb-5">
-      <h3>User Reviews</h3>
-      <% @reviews.each do |review| %>
-        <div class="card" style="width: 30rem;">
-          <div class="card-body">
-            <h5 class="card-title"><%= review.content %></h5>
-            <p class="card-text"><%= review.user.name %></p>
-          </div>
+</div>
+</div>
+<%# User Review Display Area %>
+<div class="row">
+  <div class="col-12 mb-5">
+    <h3>User Reviews</h3>
+    <% @reviews.each do |review| %>
+      <div class="card" style="width: 30rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= review.content %></h5>
+          <p class="card-text"><%= review.user.name %></p>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+</div>
 </div>
