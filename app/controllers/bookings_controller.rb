@@ -1,8 +1,5 @@
 class BookingsController < ApplicationController
 
-  # def new
-  #   @booking = Booking.new
-  # end
   def index # users/:id/bookings
     @user = current_user
     @toilets = @user.toilets
