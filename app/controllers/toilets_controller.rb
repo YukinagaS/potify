@@ -19,7 +19,9 @@ class ToiletsController < ApplicationController
     @markers = [
       {
         lat: @toilet.latitude,
-        lng: @toilet.longitude
+        lng: @toilet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {toilet: @toilet}),
+        marker_html: render_to_string(partial: "marker")
       }
     ]
   end
