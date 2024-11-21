@@ -1,8 +1,41 @@
 .btn-custom {
-    background-color: #9C5D5D;
-    color: white;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    // background-color: #9C5D5D;
+    // color: white;
+    // padding-left: 10px;
+    // padding-right: 10px;
+    // padding-top: 3px;
+    // padding-bottom: 3px;
+  background-color: #9C5D5D;
+  color: white;
+  padding: 3px 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  font-size: 15px;
+}
+
+.btn-custom:hover {
+  background-color: #f7f7f7; /* Change the background color on hover */
+  border: 1px solid #9C5D5D;
+  color:  #9C5D5D;
+  cursor: pointer; /* Show the hand cursor on hover */
+}
+
+
+.btn-form-custom {
+  background-color: #9C5D5D;
+  color: white;
+  padding: 3px 10px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  font-size: 15px;
+}
+
+.btn-form-custom:hover {
+background-color: #f7f7f7; /* Change the background color on hover */
+border: 1px solid #9C5D5D;
+color:  #9C5D5D;
+cursor: pointer; /* Show the hand cursor on hover */
 }
