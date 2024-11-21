@@ -33,6 +33,7 @@
           <p class="fs-4"><b>¥<%= @toilet.price %></b> / hour</p>
         </div>
         <!-- User Reviews Section -->
+        <hr style="border: 1px solid #ccc;">
         <div class="key-info-box">
           <div class="info-container">
             <i class="fa-solid fa-toilet-paper-slash"></i>
@@ -47,8 +48,8 @@
             <p>Recommended by users.</p>
           </div>
         </div>
+        <hr style="border: 1px solid #ccc;">
         <div class="mt-4">
-          <hr style="border: 1px solid #ccc;">
           <h3>User Reviews</h3>
           <% if @reviews.any? %>
             <% @reviews.each do |review| %>
