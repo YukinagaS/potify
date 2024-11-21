@@ -10,6 +10,9 @@ Booking.destroy_all
 puts "making users..."
 
 celso = User.create!(email: "turd@celso.com", name: "Celso", password: "123456")
+photo = File.open("app/assets/images/celso.png")
+celso.profile_picture.attach(io: photo, filename: "celso.png", content_type: "image/png")
+celso.save
 doug = User.create!(email: "turd@doug.com", name: "Doug", password: "123456")
 yann = User.create!(email: "turd@yann.com", name: "Yann", password: "123456")
 stuart = User.create!(email: "turd@stuart.com", name: "Stuart", password: "123456")

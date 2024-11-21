@@ -138,3 +138,33 @@
   color: #333;                 /* Optional: Change text color */
   font-size: 14px;             /* Set the font size for the text */
 }
+
+.owner-info {
+  display: flex;
+  align-items: center; /* Aligns avatar and text vertically */
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;  /* Makes the image circular */
+  object-fit: cover;  /* Ensures the image is cropped properly without distortion */
+  margin-right: 10px; /* Adds space between the avatar and text */
+}
+
+.owner-details {
+  display: flex;
+  flex-direction: column; /* Stacks the "Toilet Owner" and name vertically */
+}
+
+.owner-details h6 {
+  margin: 0; /* Removes default margin */
+  font-size: 0.9rem; /* Optional: Adjust font size for the title */
+  color: #333; /* Optional: Set text color */
+}
+
+.owner-details p {
+  margin: 0; /* Removes default margin */
+  font-size: 1rem; /* Optional: Adjust font size for the owner's name */
+  color: #666; /* Optional: Set text color */
+}
