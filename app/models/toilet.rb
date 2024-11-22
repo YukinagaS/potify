@@ -7,6 +7,7 @@ class Toilet < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true # may require more limitations
   validates :address, presence: true
+  validates :short_description, presence: true, length: { maximum: 150 }
   validates :description, presence: true
 
   geocoded_by :address
