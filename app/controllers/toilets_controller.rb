@@ -32,7 +32,7 @@ class ToiletsController < ApplicationController
 
   def create
     @toilet = Toilet.new(toilet_params)
-    @toilet.user = current_user
+    @toilet.user = current_use
     if @toilet.save
       redirect_to toilet_path(@toilet)
     else
@@ -43,6 +43,6 @@ class ToiletsController < ApplicationController
   private
 
   def toilet_params
-    params.require(:toilet).permit(:name, :price, :address, :description, :photo)
+    params.require(:toilet).permit(:name, :price, :address, :description, photos: [])
   end
 end
