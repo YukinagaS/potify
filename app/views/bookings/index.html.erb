@@ -22,7 +22,7 @@
             <div>
               <h4><b>Reservation details</b></h4>
               <p>Toilet name: <%= booking.toilet.name %>
-              <p>Date: <%= booking.start_time %> - <%= booking.end_time %></p>
+              <p>Date: <%= booking.id %></p>
               <% if booking.status == "declined" %>
                 <div class="btn-potify-status status-declined">CONFIRMATION <%= booking.status.upcase %></div>
                 <%= link_to booking_path(booking), class: "btn-potify btn-potify-red", data: { turbo_method: :delete, turbo_confirm: "Confirm cancellation?" } do %>
@@ -68,7 +68,7 @@
           <% unless t_booking.status == "declined" %>
             <th scope="row"><%= t_booking.toilet.name %></th>
             <td><%= t_booking.status.capitalize %></td>
-            <td><%= t_booking.start_time %></td>
+            <td><%= t_booking.id %></td>
             <td>
               <%= link_to booking_path(t_booking, update_action: "approved"), class: "btn-potify btn-potify-green", data: { turbo_method: :patch, turbo_confirm: "Approve booking?" } do %>
                 <%= image_tag('check_circle.svg', size: '14') %>
