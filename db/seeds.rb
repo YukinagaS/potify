@@ -43,11 +43,7 @@ puts "there are #{User.count} users"
 
 puts "building toilets..."
 
-celso_t = Toilet.create!(name: "The Duchess", price: 50, address: "52 Bowl Dr.", short_description: "The Duchess is a horse-shaped toilet with glossy porcelain and antique gold accents, blending art, luxury, and whimsy for a regal bathroom statement.", description: "The Duchess is a horse-shaped toilet crafted from glossy porcelain with antique gold accents. The horse’s head forms the tank, while the flowing mane and tail add elegance and stability.
-
-The integrated seat mirrors the horse’s back for comfort, and a playful mirror at the bottom offers a unique twist.
-
-Combining art, luxury, and function, The Duchess is a regal and whimsical statement piece for any bathroom.", user: celso)
+celso_t = Toilet.create!(name: "The Duchess", price: 50, address: "52 Bowl Dr.", short_description: "Change your life with a ride on the Duchess.", description: "The Duchess is a horse-shaped toilet crafted from glossy porcelain with antique gold accents. The horse’s head forms the tank, while the flowing mane and tail add elegance and stability.", user: celso)
 file = File.open("app/assets/images/horse_toilet.jpg")
 celso_t.photos.attach(io: file, filename: "toilet.jpg", content_type: "image/jpg")
 celso_t.save
@@ -66,7 +62,7 @@ file = File.open("app/assets/images/couple_toilet.jpg")
 doug_t.photos.attach(io: file, filename: "couple_toilet.jpg", content_type: "image/jpg")
 doug_t.save
 
-yann_t = Toilet.create(name: "The Golden Throne", price: 1, address: "an alleyway", short_description: "Experience luxury with our Golden & Marble Toilet, blending timeless marble elegance with rich gold accents for a sophisticated bathroom centerpiece." , description: "This luxurious Golden and Marble Elegant Toilet combines the timeless beauty of marble with the opulence of gold accents. The smooth marble surface and rich gold fixtures create a stunning contrast, adding sophistication and grandeur to any bathroom. Perfect for upscale spaces, it offers both elegance and modern functionality for an unforgettable bathroom experience.", user: yann)
+yann_t = Toilet.create(name: "The Golden Throne", price: 1, address: "an alleyway", short_description: "The Toilet formerly known as The Alisa." , description: "This luxurious Golden and Marble Elegant Toilet combines the timeless beauty of marble with the opulence of gold accents. The smooth marble surface and rich gold fixtures create a stunning contrast, adding sophistication and grandeur to any bathroom. Perfect for upscale spaces, it offers both elegance and modern functionality for an unforgettable bathroom experience.", user: yann)
 file = File.open("app/assets/images/golden_toilet.webp")
 yann_t.photos.attach(io: file, filename: "golden_toilet.webp", content_type: "image/webp")
 yann_t.save
@@ -80,7 +76,7 @@ file = File.open("app/assets/images/golden2.png")
 yann_t.photos.attach(io: file, filename: "golden2.png", content_type: "image/png")
 yann_t.save
 
-will_t = Toilet.create(name: "The Cadillac", price: 800, address: "an alleyway", short_description: "The Cadillac Toilet combines sleek style, plush seating, and efficient performance, offering automotive elegance and first-class comfort in your bathroom." , description: "Experience the perfect blend of style and comfort with the Cadillac Toilet. Inspired by the sleek lines and elegance of a Cadillac, this toilet offers plush seating and smooth, efficient performance. A true statement piece for those who appreciate luxury, it brings automotive flair and first-class comfort to your bathroom.", user: will)
+will_t = Toilet.create(name: "The Cadillac", price: 800, address: "an alleyway", short_description: "Drop off the kids in the Caddy!" , description: "Experience the perfect blend of style and comfort with the Cadillac Toilet. Inspired by the sleek lines and elegance of a Cadillac, this toilet offers plush seating and smooth, efficient performance. A true statement piece for those who appreciate luxury, it brings automotive flair and first-class comfort to your bathroom.", user: will)
 file = File.open("app/assets/images/cadillac2.png")
 will_t.photos.attach(io: file, filename: "golden_toilet.png", content_type: "image/webp")
 will_t.save
@@ -109,31 +105,79 @@ file = File.open("app/assets/images/scary.jpg")
 denis_t.photos.attach(io: file, filename: "scary.jpg", content_type: "image/jpg")
 denis_t.save
 
-12.times do |index|
-  toilet = Toilet.create!(name: "#{Faker::FunnyName.name} #{index}", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city} #{index}", short_description: "#{Faker::Quote.most_interesting_man_in_the_world} #{index}", description: "#{Faker::Quote.most_interesting_man_in_the_world} #{index}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-  file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
-  toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
-  toilet.save
-end
+toilet = Toilet.create!(name: "Turdmuncher 10,000", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "We've munched 9,999. You're 10,000!", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
 
+toilet = Toilet.create!(name: "Commode O' Dragon", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "Viciously satisfying.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
+
+toilet = Toilet.create!(name: "Big Ben", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "大便と呼んでね！＾＾", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
+
+toilet = Toilet.create!(name: "Your-inal Destiny", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "A match made in heaven.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
+
+toilet = Toilet.create!(name: "Molly Ringwald's Chamberpot", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "80's nostalgia for your butthole.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
+
+toilet = Toilet.create!(name: "OH SHIT!", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "I GOTTA POOP RIGHT NOW", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
+
+toilet = Toilet.create!(name: "#Poopy Paw Pals", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "A dog run for when you have the runs.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
+
+toilet = Toilet.create!(name: "Kuki Dumps", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "Ride on the wild side.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
+
+toilet = Toilet.create!(name: "Gassy Friends", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "Group discounts available!", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
+
+toilet = Toilet.create!(name: "Board Game Diarrhea", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "Pooples for your meeples!", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
+
+toilet = Toilet.create!(name: "Fart Friends", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "It writes itself.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
+
+toilet = Toilet.create!(name: "Stuart", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "I'm a toilet human.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
+toilet.save
 
 puts "you now have #{Toilet.count} toilets"
 
 
 puts "how about some bookings..."
 
-date1 = Date.today
-date2 = Date.today-2
-date3 = Date.today-3
-
-Booking.create!(user: celso, toilet: celso_t, start_time: date1, end_time: date2, status: "pending")
-Booking.create!(user: doug, toilet: doug_t, start_time: date2, end_time: date3, status: "pending")
-Booking.create!(user: yann, toilet: yann_t, start_time: date3, end_time: date1, status: "pending")
-Booking.create!(user: stuart, toilet: stuart_t, start_time: date1, end_time: date2, status: "pending")
-Booking.create!(user: alisa, toilet: alisa_t, start_time: date2, end_time: date3, status: "pending")
-Booking.create!(user: denis, toilet: denis_t, start_time: date3, end_time: date1, status: "pending")
-Booking.create!(user: stuart, toilet: stuart_t, start_time: date1, end_time: date2, status: "pending")
-Booking.create!(user: alisa, toilet: alisa_t, start_time: date2, end_time: date3, status: "pending")
-Booking.create!(user: denis, toilet: denis_t, start_time: date3, end_time: date1, status: "pending")
+loop_times = 1
+while loop_times < 25
+  date1 = DateTime.new(2024, 11, 23, 8, rand(1..59), 0)
+  date2 = DateTime.new(2024, 11, 23, 9, rand(1..59), 0)
+  user1 = User.all.sample
+  toilet = Toilet.where.not(user_id: user1).sample
+  Booking.create!(user: user1, toilet: toilet, start_time: date1, end_time: date2, status: "pending")
+  loop_times += 1
+end
 
 puts "there are now #{Booking.count} bookings as well"
