@@ -122,7 +122,7 @@ file = File.open("app/assets/images/03.png")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
-toilet = Toilet.create!(name: "Molly Ringwald's Chamberpot", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "80's nostalgia for your butthole.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
+toilet = Toilet.create!(name: "Molly's Chamberpot", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "80's nostalgia for your butthole.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
 file = File.open("app/assets/images/04.jpeg")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
