@@ -1,0 +1,47 @@
+.banner {
+  position: relative; /* Positioning to allow the overlay */
+  background: url('banner_toilet2.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: 10% 72%; /* Adjust this line */
+  color: white;
+  padding: 80px 0; /* Adjust padding for banner height */
+  border-radius: 10px;
+}
+
+/* Adding overlay */
+.banner::before {
+  content: ''; /* Create an empty element */
+  position: absolute; /* Position it over the background */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(8, 8, 8, 0.1); /* Semi-transparent black overlay */
+  z-index: 1; /* Make sure the overlay is behind the text */
+  border-radius: 10px;
+}
+
+/* Text styles */
+.banner h2 {
+  position: relative; /* Ensure the text is on top of the overlay */
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 8px 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow to the text */
+  z-index: 2; /* Ensure text is above the overlay */
+}
+
+.banner .lead {
+  position: relative; /* Ensure the text is on top of the overlay */
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-shadow: 12px 6px 40px rgba(0, 0, 0, 0.9);
+  color: white;
+  // font-weight: bold;
+  z-index: 2; /* Ensure text is above the overlay */
+}
+
+.banner h1 {
+  position: relative; /* Ensure the text is on top of the overlay */
+  text-shadow: 3px 3px 9px rgba(0, 0, 0, 0.3); /* Add shadow to the text */
+  z-index: 2; /* Ensure text is above the overlay */
+}
