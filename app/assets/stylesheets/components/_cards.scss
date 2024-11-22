@@ -57,14 +57,19 @@
 .image-gallery {
   display: grid;
   grid-template-columns: 60% 40%;
-  gap: 6px;
+  gap: 2px;
 }
 
 .image-gallery img {
   width: 100%;
-  height: auto;
+  // height: auto;
   object-fit: cover;
+
   // justify-self: end;
+}
+
+.first-img {
+  padding: 2px;
 }
 
 .image-size {
@@ -78,6 +83,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two columns */
   gap: 6px;
+  padding: 3px;
 }
 
 .other-images img {
@@ -145,8 +151,8 @@
 }
 
 .avatar {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;  /* Makes the image circular */
   object-fit: cover;  /* Ensures the image is cropped properly without distortion */
   margin-right: 10px; /* Adds space between the avatar and text */
