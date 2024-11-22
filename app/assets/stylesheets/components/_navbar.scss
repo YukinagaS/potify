@@ -12,9 +12,20 @@
 }
 
 #add-toilet {
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 .navbar-brand {
   width: 40px;
+}
+
+.navbar-logo {
+  height: 40px; /* Adjust as needed */
+  width: auto;
+}
+
+@media (max-width: 576px) {
+  .navbar-logo {
+    height: 30px; /* Smaller logo on small screens */
+  }
 }

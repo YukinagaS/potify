@@ -81,7 +81,7 @@
             <h3>Leave a Review</h3>
             <%= simple_form_for [@toilet, @review] do |f| %>
               <%= f.input :content %>
-              <%= f.submit "Leave Review", url: toilet_reviews_path(@toilet), class: "btn btn-custom mb-5" %>
+              <%= f.submit "Leave Review", url: toilet_reviews_path(@toilet), class: "btn btn-review-custom mb-5" %>
             <% end %>
           </div>
         <% end %>

@@ -1,7 +1,9 @@
 .nav-link {
 background-color: #DDD0D0;
+border-radius: 5px;
   &:hover {
     background-color: #765656;
+    color: #ffffff;
   }
 }
 
