@@ -18,7 +18,6 @@ class BookingsController < ApplicationController
     @booking.toilet = @toilet
     @booking.status = "pending"
     if @booking.save
-      raise
       redirect_to bookings_path
     else
       render "toilets/show", status: :unprocessable_entity
