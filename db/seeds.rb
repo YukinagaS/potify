@@ -87,18 +87,15 @@ file = File.open("app/assets/images/cadillac1.png")
 will_t.photos.attach(io: file, filename: "golden_toilet.webp", content_type: "image/png")
 will_t.save
 
-
 stuart_t = Toilet.create!(name: "Hello Kitty", price: 50, address: "52 Bowl Dr.", short_description: "strong params", description: "strong params", user: celso)
-file = File.open("app/assets/images/scary.jpg")
+file = File.open("app/assets/images/10.png")
 stuart_t.photos.attach(io: file, filename: "scary.jpg", content_type: "image/jpg")
 stuart_t.save
-
 
 alisa_t = Toilet.create(name: "Cool Biz", price: 100, address: "who cares", short_description: "for relaxing times", description: "for relaxing times", user: doug)
 file = File.open("app/assets/images/chains.jpg")
 alisa_t.photos.attach(io: file, filename: "chains.jpg", content_type: "image/jpg")
 alisa_t.save
-
 
 denis_t = Toilet.create(name: "Captain AND Tenille", price: 1, address: "hell", short_description: "good god, you're going to have fun", description: "good god, you're going to have fun", user: yann)
 file = File.open("app/assets/images/scary.jpg")
@@ -106,62 +103,62 @@ denis_t.photos.attach(io: file, filename: "scary.jpg", content_type: "image/jpg"
 denis_t.save
 
 toilet = Toilet.create!(name: "Turdmuncher 10,000", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "We've munched 9,999. You're 10,000!", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open("app/assets/images/BAR.png")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "Commode O' Dragon", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "Viciously satisfying.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open("app/assets/images/01.png")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "Big Ben", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "大便と呼んでね！＾＾", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open("app/assets/images/02.png")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "Your-inal Destiny", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "A match made in heaven.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open("app/assets/images/03.png")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "Molly Ringwald's Chamberpot", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "80's nostalgia for your butthole.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open("app/assets/images/04.jpeg")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "OH SHIT!", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "I GOTTA POOP RIGHT NOW", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open("app/assets/images/05.webp")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "#Poopy Paw Pals", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "A dog run for when you have the runs.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open("app/assets/images/06.png")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "Kuki Dumps", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "Ride on the wild side.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open("app/assets/images/07.jpg")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "Gassy Friends", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "Group discounts available!", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open("app/assets/images/08.jpg")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "Board Game Diarrhea", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "Pooples for your meeples!", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open("app/assets/images/07.png")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "Fart Friends", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "It writes itself.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open("app/assets/images/08.png")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "Stuart", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "I'm a toilet human.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg", "app/assets/images/slipper.jpg", "app/assets/images/ski-toilet.jpg"].sample)
+file = File.open("app/assets/images/09.png")
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
