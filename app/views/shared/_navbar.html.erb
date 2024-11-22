@@ -15,10 +15,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Search Bar (adjust on small screens) -->
-    <div class="input-group w-25 d-none d-sm-flex">
-      <input type="search" class="form-control rounded" placeholder="Find a toilet near you" aria-label="EMERGENCY!" aria-describedby="search-addon" />
-      <button type="button" class="btn btn-custom" data-mdb-ripple-init>search</button>
+
+  <div class="input-group w-25 d-flex">
+    <%= form_with url: toilets_path, method: :get, html: {class: 'd-flex'} do %>
+    <div data-controller="address-autocomplete"data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control d-none",
+            placeholder: "Type a keyword", data: {address_autocomplete_target: "address"}
+        %>
     </div>
+         <button ><i class="fas fa-search no-border-radius"style="color: #8356D1"></i></button>
+         <% end %>
+  </div>
     <!-- Navbar Menu -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">

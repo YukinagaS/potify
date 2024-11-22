@@ -1,13 +1,19 @@
 class ToiletsController < ApplicationController
-  skip_before_action :authenticate_user!, except: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @toilets = Toilet.where.not(user: current_user)
-    @markers = @toilets.geocoded.map do |toilet|
-      {
-        lat: toilet.latitude,
-        lng: toilet.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {toilet: toilet})
-      }
+    if params[:query].present?
+      @toilets = Toilet.nearby_locations(params[:query])
+    else
+      @toilets = Toilet.where.not(user: current_user)
+    end
+    if @toilets.present?
+      @markers = @toilets.geocoded.map do |toilet|
+        {
+          lat: toilet.latitude,
+          lng: toilet.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: {toilet: toilet})
+        }
+      end
     end
   end
 
