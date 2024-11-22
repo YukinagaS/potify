@@ -161,7 +161,7 @@ toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
 toilet = Toilet.create!(name: "Stuart", price: (500..2000).to_a.sample, address: "#{Faker::Address.street_address}, #{Faker::Address.city}", short_description: "I'm a toilet human.", description: "#{Faker::Quote.most_interesting_man_in_the_world}", user: [yann, stuart, denis, alisa, doug, celso].sample)
-file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg"].sample)
+file = File.open(["app/assets/images/BAR.png", "app/assets/images/01.png", "app/assets/images/02.png", "app/assets/images/03.png", "app/assets/images/04.jpeg", "app/assets/images/05.webp", "app/assets/images/06.png", "app/assets/images/07.jpg", "app/assets/images/08.jpg", "app/assets/images/slipper.jpg", "app/assets/images/ski-toilet.jpg"].sample)
 toilet.photos.attach(io: file, filename: "BAR.png", content_type: "image/jpg")
 toilet.save
 
