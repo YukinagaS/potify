@@ -8,7 +8,7 @@
             <% @toilet.photos.each_with_index do |photo, index| %>
               <% if index == 0 %>
                 <!-- First image with a larger size -->
-                <%= cl_image_tag(photo.key) %> <!-- Size for the first image -->
+                <%= cl_image_tag(photo.key, class:"first-img") %> <!-- Size for the first image -->
               <% elsif index == 1 %>
                 <!-- Start grouping images 2, 3, and 4 -->
                 <div class="other-images">
@@ -88,7 +88,7 @@
       </div>
     </div>
     <!-- Right Column: Map and Booking Form (Aligns with Toilet Name) -->
-    <div class="col-md-4 mt-3 d-flex flex-column">
+    <div class="col-md-4 mt-3 d-flex flex-column mb-3">
       <!-- Map Section -->
       <div id="map" class="map-container"
         data-controller="map"
@@ -97,22 +97,31 @@
       </div>
       <% if @toilet.user != current_user %>
         <!-- Booking Form (Aligned with Toilet Name) -->
-        <div class="mt-4">
-          <div class="form-container">
-            <h3>Book this toilet</h3>
-            <%= simple_form_for [@toilet, @booking] do |f| %>
-              <div class="form-group">
-                <!-- Use datetime_local input for both start_time and end_time -->
-                <%= f.input :start_time, html5:true, label: "Start Time" %>
-              </div>
-              <% time_slots = ["9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"] %>
-              <%= f.input :start_time, as: :select, collection: time_slots %>
-              <%= f.input :end_time, as: :select, collection: time_slots %>
-              <div class="d-flex justify-content-center">
-                <%= f.submit "Book this toilet", url: bookings_path, class: "btn btn-form-custom mb-5", style: "padding: 10px 20px;" %>
-              <% end %>
+        <div data-controller="booking-price" data-booking-price-price-value=<%= @toilet.price %> class="form-container mt-4">
+          <h3>Book this toilet</h3>
+          <%= simple_form_for [@toilet, @booking] do |f| %>
+            <div class="form-group">
+              <!-- Use datetime_local input for both start_time and end_time -->
+              <%= f.input :start_time, as: :date, html5:true, label: "Date", wrapper: false, input_html: { value: nil } %>
             </div>
-          </div>
+            <% time_slots = ["9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"] %>
+            <!-- On change of dates, it triggers our update inside of our JS controller -->
+            <%= f.input :start_time, as: :select, collection: time_slots, input_html: { data: { booking_price_target: 'start_time', action: 'change->booking-price#update' }, min: Date.today } %>
+            <%= f.input :end_time, as: :select, collection: time_slots, input_html: { data: { booking_price_target: 'end_time', action: 'change->booking-price#update' }, min: Date.today } %>
+            <!-- Hidden when no dates chosen, total amount displayed here when changed -->
+            <div class="d-flex justify-content-between">
+              <div>
+                <p class='fw-bold mt-3'>¥<%= @toilet.price %> / hour</p>
+                <p class='fw-bold'>Cleaning Fee: ¥150</p>
+                <p class='fw-bold'>Potify Fee: ¥200</p>
+              </div>
+              <p class='fw-bold mb-3 d-flex align-items-end fs-4' data-booking-price-target="price" >
+              </p>
+            </div>
+            <div class="d-flex justify-content-center">
+              <%= f.submit "Book this toilet", class: "btn btn-form-custom mb-5", style: "padding: 10px 20px;" %>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
