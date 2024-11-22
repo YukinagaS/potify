@@ -112,9 +112,11 @@
             <div class="d-flex justify-content-between">
               <div>
                 <p class='fw-bold mt-3'>¥<%= @toilet.price %> / hour</p>
+                <p class='fw-bold'>Cleaning Fee: ¥150</p>
+                <p class='fw-bold'>Potify Fee: ¥200</p>
               </div>
-              <div data-booking-price-target="price" class='fw-bold mt-2'>
-              </div>
+              <p class='fw-bold mb-3 d-flex align-items-end fs-4' data-booking-price-target="price" >
+              </p>
             </div>
             <div class="d-flex justify-content-center">
               <%= f.submit "Book this toilet", class: "btn btn-form-custom mb-5", style: "padding: 10px 20px;" %>

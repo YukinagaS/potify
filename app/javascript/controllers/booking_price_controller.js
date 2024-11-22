@@ -7,6 +7,8 @@ export default class extends Controller {
 
   update() {
     const pricePerHour = parseInt(this.priceValue, 10);
+    const cleaningFee = 150
+    const potifyFee = 200
     console.log(pricePerHour)
         // make sure the user has chosen a start date and end date
     if (
@@ -24,8 +26,8 @@ export default class extends Controller {
       if (diffInHours > 0) {
         // displays the total price per hour 
         this.priceTarget.innerHTML = `<span>¥${(
-          diffInHours * pricePerHour
-        ).toLocaleString()}</span><pclass='fw-light'> Total</p>`;
+          diffInHours * pricePerHour + cleaningFee + potifyFee
+        ).toLocaleString()} Total</span>`;
       } else if (diffInHours === 0) {
         // displays 1-night minimum if end date is same as start date
 
