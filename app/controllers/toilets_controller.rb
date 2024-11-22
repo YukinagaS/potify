@@ -49,6 +49,6 @@ class ToiletsController < ApplicationController
   private
 
   def toilet_params
-    params.require(:toilet).permit(:name, :price, :address, :description, photos: [])
+    params.require(:toilet).permit(:name, :price, :address, :short_description, :description, photos: [])
   end
 end
