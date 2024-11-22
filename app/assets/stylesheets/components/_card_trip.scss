@@ -3,9 +3,10 @@
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     position: relative; // NEEDED FOR THE LINK
+
     }
     .card-trip > img {
-    height: 200px;
+    height: 400px;
     width: 100%;
     object-fit: cover;
     }
@@ -39,4 +40,9 @@
     bottom: 0;
     left: 0;
     width: 100%;
+    }
+
+    .card {
+      height: 400px; /* or any value you need */
+      overflow: hidden; /* to hide overflow content */
     }
