@@ -104,7 +104,7 @@ alisa_t.photos.attach(io: file, filename: "chains.jpg", content_type: "image/jpg
 alisa_t.save
 
 
-denis_t = Toilet.create(name: "Captain AND Tenille", price: 1, address: "hell", description: "good god, you're going to have fun", user: yann)
+denis_t = Toilet.create(name: "Captain AND Tenille", price: 1, address: "meguro", description: "good god, you're going to have fun", user: yann)
 file = File.open("app/assets/images/BAR.jpg")
 denis_t.photos.attach(io: file, filename: "BAR.jpg", content_type: "image/jpg")
 denis_t.save

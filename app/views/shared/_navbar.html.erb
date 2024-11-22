@@ -17,12 +17,15 @@
     <!-- Search Bar (adjust on small screens) -->
 
   <div class="input-group w-25 d-flex">
-    <%= simple_form_for @toilet, html: {class: 'd-flex'} do |f| %>
-      <%= f.input :address, label: false,
-      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-      <%= f.submit "Search", class: "btn btn-custom" %>
-    <% end %>
+    <%= form_with url: toilets_path, method: :get, html: {class: 'd-flex'} %>
+    <div data-controller="address-autocomplete"data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control d-none",
+            placeholder: "Type a keyword", data: {address_autocomplete_target: "address"}
+        %>
+    </div>
+         <button ><i class="fas fa-search no-border-radius"style="color: #8356D1"></i></button>
   </div>
     <!-- Navbar Menu -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
