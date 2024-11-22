@@ -8,7 +8,7 @@
             <% @toilet.photos.each_with_index do |photo, index| %>
               <% if index == 0 %>
                 <!-- First image with a larger size -->
-                <%= cl_image_tag(photo.key) %> <!-- Size for the first image -->
+                <%= cl_image_tag(photo.key, class:"first-img") %> <!-- Size for the first image -->
               <% elsif index == 1 %>
                 <!-- Start grouping images 2, 3, and 4 -->
                 <div class="other-images">
